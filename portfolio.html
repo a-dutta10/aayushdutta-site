@@ -1,73 +1,184 @@
-<section>
-  <h1>Portfolio</h1>
-  <p class="subtitle">A growing compilation of engineering works and projects.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Aayush Dutta</title>
+  <meta name="description" content="Portfolio projects by Aayush Dutta." />
 
-  <div class="portfolio-grid">
+  <style>
+    /* Base */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #111;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">ROBOTIC WAITER</div>
-    </a>
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">SELF SOLVING RUBIK'S CUBE</div>
-    </a>
+    nav a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">RC CAR</div>
-    </a>
+    nav a:hover {
+      opacity: 0.75;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">DIMENSIONAL ACCURACY OF BAAM</div>
-    </a>
+    /* Headings */
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">TESLA</div>
-    </a>
+    .subtitle {
+      color: #555;
+      margin-bottom: 32px;
+      max-width: 820px;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">TOWING RIG FOR 2 JET SKIS</div>
-    </a>
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+      max-width: 1000px;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">THE COCA-COLA COMPANY</div>
-    </a>
+    .portfolio-item {
+      text-decoration: none;
+      color: #111;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">GEORGIA TECH ME 2110 ROBOT</div>
-    </a>
+    .portfolio-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #eaeaea;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      transition: background 0.15s ease;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">TIE FIGHTER MODEL</div>
-    </a>
+    .portfolio-item:hover .portfolio-image {
+      background: #ddd;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">ROBOJACKETS – ROBORACING</div>
-    </a>
+    .portfolio-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      color: #555;
+      text-align: center;
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">THE ROSHNI PROJECT</div>
-    </a>
+    /* Responsive */
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">SOLAR TECHNOLOGIES RESEARCH</div>
-    </a>
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
 
-    <a class="portfolio-item" href="#">
-      <div class="portfolio-image"></div>
-      <div class="portfolio-title">CARRIER MANUFACTURING</div>
-    </a>
+<body>
 
-  </div>
-</section>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <section>
+    <h1>Portfolio</h1>
+    <p class="subtitle">
+      A growing compilation of engineering works and projects.
+    </p>
+
+    <div class="portfolio-grid">
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">ROBOTIC WAITER</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">SELF SOLVING RUBIK'S CUBE</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">RC CAR</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">DIMENSIONAL ACCURACY OF BAAM</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">TESLA</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">TOWING RIG FOR 2 JET SKIS</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">THE COCA-COLA COMPANY</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">GEORGIA TECH ME 2110 ROBOT</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">TIE FIGHTER MODEL</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">ROBOJACKETS – ROBORACING</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">THE ROSHNI PROJECT</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">SOLAR TECHNOLOGIES RESEARCH</div>
+      </a>
+
+      <a class="portfolio-item" href="#">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-title">CARRIER MANUFACTURING</div>
+      </a>
+
+    </div>
+  </section>
+
+</body>
+</html>
