@@ -4,38 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aayush Dutta</title>
-  <meta name="description" content="Mechanical and Manufacturing Engineer portfolio of Aayush Dutta." />
+  <meta name="description" content="Mechanical Engineer portfolio of Aayush Dutta." />
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 80px auto;
       padding: 0 20px;
       line-height: 1.6;
       color: #111;
     }
+
     nav {
       display: flex;
       gap: 24px;
-      margin-bottom: 48px;
+      margin-bottom: 72px;
     }
+
     nav a {
       text-decoration: none;
       color: #111;
       font-weight: 500;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
+
     section {
-      margin-bottom: 48px;
+      margin-bottom: 72px;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin-bottom: 24px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text h1 {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+    }
+
+    .about-text h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 28px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .education-item,
+    .skills-list,
+    .contact-list {
+      max-width: 720px;
+    }
+
+    .education-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .skills-list p {
+      margin-bottom: 10px;
+    }
+
+    .contact-list a {
+      color: #111;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-photo {
+        margin-top: 32px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -44,40 +118,71 @@
     <a href="/resume.pdf">Resume</a>
   </nav>
 
-  <section>
-    <h1>Aayush Dutta</h1>
-    <p>
-      Hi! I’m Aayush Dutta, a mechanical engineer from MIT, currently pursuing graduate studies in manufacturing and design. My work is driven by an interest in building physical systems that are robust, scalable, and thoughtfully engineered—from early concept through validation and production. I’m particularly motivated by problems where mechanical design intersects with automation, data, and real-world constraints.
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-text">
+      <h1>Aayush Dutta</h1>
+      <h3>Mechanical Engineer</h3>
 
-      Across industry and academic projects, I’ve gravitated toward roles that involve turning complex requirements into practical, manufacturable solutions. I enjoy working close to hardware—designing, testing, and refining systems—while also using software and analytical tools to inform decisions and improve reliability. This combination has shaped how I approach engineering: with an emphasis on clarity, iteration, and engineering judgment.
+      <p>
+        I’m Aayush Dutta, a mechanical engineer from Georgia Tech with a minor in
+        Computer Science, currently pursuing advanced training in manufacturing
+        and design. My work is driven by an interest in building physical systems
+        that are robust, scalable, and thoughtfully engineered.
+      </p>
 
-      Looking ahead, I aim to work in industries such as advanced manufacturing, mobility, robotics, and energy, where mechanical systems play a central role in enabling scale and impact. I’m especially interested in fast-paced product-focused engineering roles that sit at the intersection of design, validation, and production, and in environments that value hands-on problem solving and long-term system thinking. You can find a more detailed overview of my experience and background in my resume.
-    </p>
+      <p>
+        I’m particularly motivated by problems where mechanical design intersects
+        with automation, data, and real-world constraints. I enjoy working close
+        to hardware while using analytical and computational tools to inform
+        decisions and improve reliability.
+      </p>
+
+      <p>
+        Looking ahead, I aim to work in industries such as advanced manufacturing,
+        mobility, robotics, and energy—especially in product-focused roles that
+        span design, validation, and production.
+      </p>
+    </div>
+
+    <div class="about-photo">
+      <img src="/headshot.jpg" alt="Aayush Dutta portrait">
+    </div>
   </section>
 
+  <!-- EDUCATION -->
   <section>
-    <h2>Education</h2>
-    <p>
-      Massachusetts Institute of Technology — MEng Mechanical Engineering, Advanced Manufacturing and Design
-    <p>
-      Georgia Institute of Technology — B.S. Mechanical Engineering, Minor in Computer Science
-    </p>
+    <h2>EDUCATION</h2>
+    <div class="education-item">
+      <strong>Massachusetts Institute of Technology</strong>
+      Master of Engineering in Mechanical Engineering<br>
+      Advanced Manufacturing and Design
+    </div>
+    <div class="education-item">
+      <strong>Georgia Institute of Technology</strong>
+      Bachelor of Science in Mechanical Engineering<br>
+      Minor in Computer Science
+    </div>
   </section>
 
+  <!-- SKILLS -->
   <section>
-    <h2>Skills</h2>
-    <p>
-      CAD (SolidWorks, NX), Manufacturing Processes, Test & Validation,
-      GD&T, DOE, Python, MATLAB
-    </p>
+    <h2>SKILLS</h2>
+    <div class="skills-list">
+      <p><strong>Mechanical Design & Analysis:</strong> CAD (SolidWorks, NX), GD&T, FEA, tolerance analysis</p>
+      <p><strong>Manufacturing & Validation:</strong> DFM/DFA, test & validation, DOE, fixture design</p>
+      <p><strong>Software & Data:</strong> Python, MATLAB, basic automation and data analysis</p>
+      <p><strong>Tools & Methods:</strong> Systems thinking, cross-functional collaboration, technical documentation</p>
+    </div>
   </section>
 
+  <!-- CONTACT -->
   <section>
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:adutta00712@gmail.com">Email</a> ·
-      <a href="https://www.linkedin.com/in/aayush-dutta10/">LinkedIn</a>
-    </p>
+    <h2>CONTACT</h2>
+    <div class="contact-list">
+      <a href="mailto:aayush.dutta@gatech.edu">Email</a>
+      <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+    </div>
   </section>
 
 </body>
