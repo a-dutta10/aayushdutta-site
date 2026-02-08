@@ -64,14 +64,19 @@
     .portfolio-image {
       width: 100%;
       aspect-ratio: 4 / 3;
-      background: #eaeaea;
       border-radius: 6px;
       margin-bottom: 12px;
-      transition: background 0.15s ease;
+      object-fit: cover;
+      display: block;
+      background: #eaeaea;
     }
 
     .portfolio-item:hover .portfolio-image {
-      background: #ddd;
+      transform: scale(1.01);
+    }
+    
+    .portfolio-image {
+      transition: transform 0.15s ease;
     }
 
     .portfolio-title {
@@ -118,7 +123,7 @@
       </a>
 
       <a class="portfolio-item" href="#">
-        <div class="portfolio-image"></div>
+        <img class="portfolio-image" src="Autonomous Rubik's Cube Thumbnail.jpg" alt="Self Solving Rubik's Cube">
         <div class="portfolio-title">SELF SOLVING RUBIK'S CUBE</div>
       </a>
 
