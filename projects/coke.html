@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Coca-Cola Company | Aayush Dutta</title>
 
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      opacity: 0.75;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #555;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      border: 1px solid #e6e6e6;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .meta-label {
+      color: #777;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eaeaea;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin: 40px 0 12px 0;
+    }
+
+    ul {
+      margin-left: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #eaeaea;
+      cursor: zoom-in;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    .links {
+      margin-top: 32px;
+    }
+
+    .links a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      margin-right: 18px;
+    }
+
+    .links a:hover {
+      opacity: 0.75;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: zoom-out;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        margin: 48px auto;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1>The Coca-Cola Company</h1>
+  <h3>Atlanta, GA - Jan 2023 to Aug 2024</h3>
+  <p class="subtitle">
+    Manufacturing and design engineering work focused on reliability, testing,
+    and data-driven improvement in high-volume production environments.
+  </p>
+
+  <div class="meta">
+    <div>
+      <div class="meta-label">ROLE</div>
+      Junior & Senior Fluidics Engineering Co-Op
+    </div>
+    <div>
+      <div class="meta-label">FOCUS</div>
+      Manufacturing · Testing · Process Improvement
+    </div>
+    <div>
+      <div class="meta-label">TOOLS</div>
+      CAD · Test Rigs · Data Analysis
+    </div>
+    <div>
+      <div class="meta-label">ENVIRONMENT</div>
+      High-Volume Industrial Manufacturing
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <img class="hero" src="/projects/cokehero.jpg" alt="Coca-Cola manufacturing project overview">
+
+  <h2>OVERVIEW</h2>
+  <p>
+    At The Coca-Cola Company, I worked within manufacturing and fluidics engineering
+    teams to support the development, testing, and validation of beverage dispensing
+    systems. My work emphasized understanding how mechanical design decisions affect
+    reliability, performance, and manufacturability at scale.
+  </p>
+
+  <h2>RESPONSIBILITIES</h2>
+  <ul>
+    <li>Designed and evaluated test setups for fluid handling and dispensing systems</li>
+    <li>Conducted performance and reliability testing to identify failure modes</li>
+    <li>Analyzed test data to inform design changes and process improvements</li>
+    <li>Collaborated with manufacturing and quality teams to resolve production issues</li>
+    <li>Supported documentation and standardization efforts for testing procedures</li>
+  </ul>
+
+  <h2>IMPACT & LEARNING</h2>
+  <ul>
+    <li>Gained experience designing mechanical systems for millions of units in the field</li>
+    <li>Developed a strong appreciation for repeatability, tolerance control, and test rigor</li>
+    <li>Learned how data-driven decisions improve product reliability and manufacturing yield</li>
+    <li>Strengthened communication skills across engineering, manufacturing, and quality teams</li>
+  </ul>
+
+  <h2>GALLERY</h2>
+  <div class="gallery">
+    <img src="/images/projects/coke/01.jpg" alt="Coca-Cola project image 1" onclick="openLightbox(this)">
+    <img src="/images/projects/coke/02.jpg" alt="Coca-Cola project image 2" onclick="openLightbox(this)">
+    <img src="/images/projects/coke/03.jpg" alt="Coca-Cola project image 3" onclick="openLightbox(this)">
+  </div>
+
+  <div class="links">
+    <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+</html>
