@@ -195,13 +195,17 @@
 
   <h2>GALLERY</h2>
   <div class="gallery">
-    <img src="/projects/tesla01.webp" alt="Tesla work image 1">
-    <img src="/projects/tesla02.jpg" alt="Tesla work image 2">
-    <img src="/projects/tesla03.jpg" alt="Tesla work image 3">
+    <img src="/projects/tesla01.webp" alt="Tesla work image 1" onclick="openLightbox(this)">
+    <img src="/projects/tesla02.jpg" alt="Tesla work image 2" onclick="openLightbox(this)">
+    <img src="/projects/tesla03.jpg" alt="Tesla work image 3" onclick="openLightbox(this)">
   </div>
 
   <div class="links">
     <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+  
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
   </div>
 </body>
 </html>
