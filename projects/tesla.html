@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tesla | Aayush Dutta</title>
 
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      opacity: 0.75;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #555;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      border: 1px solid #e6e6e6;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .meta-label {
+      color: #777;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eaeaea;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin: 40px 0 12px 0;
+    }
+
+    ul {
+      margin-left: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #eaeaea;
+    }
+
+    .links {
+      margin-top: 32px;
+    }
+
+    .links a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      margin-right: 18px;
+    }
+
+    .links a:hover {
+      opacity: 0.75;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        margin: 48px auto;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1>Tesla</h1>
+  <p class="subtitle">
+    Wiring harness design and hardware validation work supporting high-reliability
+    automotive and energy systems.
+  </p>
+
+  <div class="meta">
+    <div>
+      <div class="meta-label">ROLE</div>
+      Mechanical Engineering Intern
+    </div>
+    <div>
+      <div class="meta-label">FOCUS</div>
+      Wiring Harness Design · Validation · Manufacturing
+    </div>
+    <div>
+      <div class="meta-label">TOOLS</div>
+      CAD · Test Fixtures · Documentation
+    </div>
+    <div>
+      <div class="meta-label">ENVIRONMENT</div>
+      Production-Focused Engineering
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <img class="hero" src="/images/projects/tesla/hero.jpg" alt="Tesla project overview">
+
+  <h2>OVERVIEW</h2>
+  <p>
+    During my time at Tesla, I worked on the design, packaging, and validation of
+    wiring harness systems supporting automotive and energy products. My role
+    emphasized translating system-level requirements into manufacturable,
+    serviceable hardware while supporting rapid iteration in a production-driven
+    environment.
+  </p>
+
+  <h2>RESPONSIBILITIES</h2>
+  <ul>
+    <li>Designed and modified wiring harness layouts to integrate electromechanical components</li>
+    <li>Supported component selection and validation for prototype and production builds</li>
+    <li>Authored build instructions and documentation for complex harness assemblies</li>
+    <li>Worked closely with fabrication teams to troubleshoot issues during assembly and bring-up</li>
+    <li>Assisted in debugging and quality checks across pre- and post-production stages</li>
+  </ul>
+
+  <h2>IMPACT & LEARNING</h2>
+  <ul>
+    <li>Gained hands-on experience designing hardware for high-volume, high-reliability systems</li>
+    <li>Learned to balance electrical, mechanical, and manufacturing constraints under tight timelines</li>
+    <li>Developed an appreciation for robust documentation and cross-functional communication</li>
+    <li>Strengthened understanding of how early design decisions affect downstream production and service</li>
+  </ul>
+
+  <h2>GALLERY</h2>
+  <div class="gallery">
+    <img src="/images/projects/tesla/01.jpg" alt="Tesla work image 1">
+    <img src="/images/projects/tesla/02.jpg" alt="Tesla work image 2">
+    <img src="/images/projects/tesla/03.jpg" alt="Tesla work image 3">
+  </div>
+
+  <div class="links">
+    <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+</body>
+</html>
