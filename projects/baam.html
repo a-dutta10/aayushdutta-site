@@ -179,31 +179,31 @@
   <h2>PROJECT GOAL</h2>
   <p>
     We analyzed how <strong>nozzle Z-offset</strong>, <strong>extrusion RPM</strong>, and <strong>feed rate</strong> affect dimensional accuracy
-    in BAAM single-bead printing using a fractional DOE, then quantified main effects/interactions using ANOVA and regression.  [oai_citation:2‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:3‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    in BAAM single-bead printing using a fractional DOE, then quantified main effects/interactions using ANOVA and regression.
   </p>
 
   <h2>DATASET & CONTROLLED CONDITIONS</h2>
   <ul>
-    <li>Dataset included 45 single-bead images (we focused on single-bead only).  [oai_citation:4‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:5‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
-    <li>Constants held fixed: melt temperature 277°C, return time 272s, 10 layers/part, nozzle diameter 0.4".  [oai_citation:6‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:7‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
-    <li>Measurements were extracted from cross-section images using ImageJ.  [oai_citation:8‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:9‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+    <li>Dataset included 45 single-bead images (we focused on single-bead only).</li>
+    <li>Constants held fixed: melt temperature 277°C, return time 272s, 10 layers/part, nozzle diameter 0.4".</li>
+    <li>Measurements were extracted from cross-section images using ImageJ.</li>
   </ul>
 
   <h2>MEASUREMENT PROCEDURE</h2>
   <p>
     We targeted five geometric outputs: layer height, layer width, overall part height, overall part width, and contact width.
-    For consistency, layer-level metrics were averaged across all 10 layers; overall height/width were averaged across three locations.  [oai_citation:10‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:11‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    For consistency, layer-level metrics were averaged across all 10 layers; overall height/width were averaged across three locations.
   </p>
 
   <h2>DESIGN OF EXPERIMENTS</h2>
   <p>
     A full 3³ factorial would require 27 treatments. To reduce burden, we used a 9-treatment, 3-level fractional design
     equivalent to an <strong>L9 Taguchi orthogonal array (strength 2)</strong>, with <strong>5 replicates per treatment</strong>, focusing analysis on
-    <strong>main effects and two-way interactions</strong>.  [oai_citation:12‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:13‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    <strong>main effects and two-way interactions</strong>.
   </p>
 
   <div class="callout">
-    <strong>Factor levels (example window):</strong> Z-offset (0.15", 0.20", 0.25"), RPM (325, 350, 375), Feed Rate (~3.031, 3.307, 3.583 in/s).  [oai_citation:14‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:15‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    <strong>Factor levels (example window):</strong> Z-offset (0.15", 0.20", 0.25"), RPM (325, 350, 375), Feed Rate (~3.031, 3.307, 3.583 in/s).
   </div>
 
   <h2>ANALYSIS APPROACH</h2>
@@ -211,17 +211,17 @@
     <div>
       <strong>Stability / repeatability</strong>
       <ul>
-        <li>Run + Moving Range charts used to visualize repeatability and detect drift / special-cause behavior.  [oai_citation:16‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)</li>
-        <li>Experimental structure intentionally induced deterministic changes via parameter blocks.  [oai_citation:17‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)</li>
+        <li>Run + Moving Range charts used to visualize repeatability and detect drift / special-cause behavior.</li>
+        <li>Experimental structure intentionally induced deterministic changes via parameter blocks.</li>
       </ul>
     </div>
 
     <div>
       <strong>Effect estimation</strong>
       <ul>
-        <li>One-way ANOVA per response to test treatment differences.  [oai_citation:18‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:19‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
-        <li>Nested ANOVA (variance components) to compare within-treatment noise vs between-treatment effects.  [oai_citation:20‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:21‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
-        <li>OLS regression using main effects + two-way interactions.  [oai_citation:22‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:23‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+        <li>One-way ANOVA per response to test treatment differences.</li>
+        <li>Nested ANOVA (variance components) to compare within-treatment noise vs between-treatment effects.</li>
+        <li>OLS regression using main effects + two-way interactions.</li>
       </ul>
     </div>
   </div>
@@ -229,13 +229,13 @@
   <h2>KEY RESULTS</h2>
   <ul>
     <li>
-      Across outputs, replicate-to-replicate variability often dominated treatment differences; nested ANOVA attributed most variance to within-treatment noise.  [oai_citation:24‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+      Across outputs, replicate-to-replicate variability often dominated treatment differences; nested ANOVA attributed most variance to within-treatment noise.
     </li>
     <li>
-      Regression models were not significant overall, despite a few individually significant coefficients—consistent with the nested ANOVA conclusion.  [oai_citation:25‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:26‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+      Regression models were not significant overall, despite a few individually significant coefficients—consistent with the nested ANOVA conclusion.
     </li>
     <li>
-      Directional/physical interpretation still emerged: nozzle Z-offset (LH) behaved as the dominant lever, feed rate was second-order, and RPM had comparatively smaller effects.  [oai_citation:27‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:28‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+      Directional/physical interpretation still emerged: nozzle Z-offset (LH) behaved as the dominant lever, feed rate was second-order, and RPM had comparatively smaller effects.
     </li>
   </ul>
 
@@ -243,9 +243,7 @@
   <p>
     Within the safe operating window tested, the physical response of the printer and measurement variability reduced contrast between treatments.
     We recommended widening parameter excitation, improving replication strategy (randomized true replicates), and adding factor levels / broader coverage
-    to increase statistical power and capture non-linear behavior.  [oai_citation:29‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:30‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
-  </p>
-
+    to increase statistical power and capture non-linear behavior.
   <h2>GALLERY</h2>
   <!-- Replace these with your actual images/plots -->
   <div class="gallery">
