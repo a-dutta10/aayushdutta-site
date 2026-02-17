@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimensional Accuracy of BAAM | Aayush Dutta</title>
 
+  <style>
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      max-width:1000px;
+      margin:80px auto;
+      padding:0 20px;
+      color:#111;
+      line-height:1.6;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      margin-bottom:32px;
+    }
+    nav a{
+      color:#111;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      font-weight:500;
+    }
+    nav a:hover{opacity:.75}
+
+    h1{font-size:2.2rem;margin:0 0 8px 0}
+    .subtitle{color:#555;max-width:820px;margin:0 0 24px 0}
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      padding:18px;
+      margin:0 0 32px 0;
+      font-size:.95rem;
+    }
+    .meta-label{
+      color:#777;
+      font-size:.78rem;
+      letter-spacing:.12em;
+      margin:0 0 4px 0;
+    }
+
+    .hero{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      border-radius:10px;
+      background:#eaeaea;
+      margin:0 0 40px 0;
+      display:block;
+    }
+
+    h2{
+      font-size:.9rem;
+      letter-spacing:.12em;
+      color:#777;
+      margin:40px 0 12px 0;
+    }
+
+    ul{margin-left:18px}
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+    }
+
+    .callout{
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      padding:16px;
+      color:#333;
+      background:#fafafa;
+      margin-top:18px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .gallery img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:8px;
+      background:#eaeaea;
+      cursor:zoom-in;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+    .gallery img:hover{transform:scale(1.02);opacity:.9}
+
+    .links{margin-top:32px}
+    .links a{
+      color:#111;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      font-weight:500;
+      margin-right:18px;
+    }
+    .links a:hover{opacity:.75}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      cursor:zoom-out;
+      padding:24px;
+    }
+    .lightbox img{
+      max-width:92%;
+      max-height:92%;
+      border-radius:10px;
+      object-fit:contain;
+      background:#111;
+    }
+
+    @media (max-width:900px){
+      body{margin:48px auto}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1>Dimensional Accuracy of a BAAM Printer</h1>
+  <p class="subtitle">
+    A 2.830 (MIT) study quantifying how key BAAM process parameters influence single-bead geometry using a structured DOE,
+    ImageJ measurement, and statistical analysis (ANOVA, nested ANOVA, regression).
+  </p>
+
+  <div class="meta">
+    <div>
+      <div class="meta-label">COURSE</div>
+      MIT 2.830 — Final Project
+    </div>
+    <div>
+      <div class="meta-label">FACTORS</div>
+      Nozzle Z-offset · Extrusion RPM · Feed Rate
+    </div>
+    <div>
+      <div class="meta-label">DATA</div>
+      45 single-bead cross-section images · 5 replicates/treatment
+    </div>
+    <div>
+      <div class="meta-label">METHODS</div>
+      DOE (L9 strength-2) · Run/MR charts · ANOVA · Nested ANOVA · OLS regression
+    </div>
+  </div>
+
+  <!-- HERO IMAGE (use a strong photo or a representative bead cross-section) -->
+  <img class="hero" src="/images/projects/baam/hero.jpg" alt="BAAM bead cross section / experimental overview">
+
+  <h2>PROJECT GOAL</h2>
+  <p>
+    We analyzed how <strong>nozzle Z-offset</strong>, <strong>extrusion RPM</strong>, and <strong>feed rate</strong> affect dimensional accuracy
+    in BAAM single-bead printing using a fractional DOE, then quantified main effects/interactions using ANOVA and regression.  [oai_citation:2‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:3‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+  </p>
+
+  <h2>DATASET & CONTROLLED CONDITIONS</h2>
+  <ul>
+    <li>Dataset included 45 single-bead images (we focused on single-bead only).  [oai_citation:4‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:5‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+    <li>Constants held fixed: melt temperature 277°C, return time 272s, 10 layers/part, nozzle diameter 0.4".  [oai_citation:6‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:7‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+    <li>Measurements were extracted from cross-section images using ImageJ.  [oai_citation:8‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:9‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+  </ul>
+
+  <h2>MEASUREMENT PROCEDURE</h2>
+  <p>
+    We targeted five geometric outputs: layer height, layer width, overall part height, overall part width, and contact width.
+    For consistency, layer-level metrics were averaged across all 10 layers; overall height/width were averaged across three locations.  [oai_citation:10‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:11‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+  </p>
+
+  <h2>DESIGN OF EXPERIMENTS</h2>
+  <p>
+    A full 3³ factorial would require 27 treatments. To reduce burden, we used a 9-treatment, 3-level fractional design
+    equivalent to an <strong>L9 Taguchi orthogonal array (strength 2)</strong>, with <strong>5 replicates per treatment</strong>, focusing analysis on
+    <strong>main effects and two-way interactions</strong>.  [oai_citation:12‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:13‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+  </p>
+
+  <div class="callout">
+    <strong>Factor levels (example window):</strong> Z-offset (0.15", 0.20", 0.25"), RPM (325, 350, 375), Feed Rate (~3.031, 3.307, 3.583 in/s).  [oai_citation:14‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:15‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+  </div>
+
+  <h2>ANALYSIS APPROACH</h2>
+  <div class="two-col">
+    <div>
+      <strong>Stability / repeatability</strong>
+      <ul>
+        <li>Run + Moving Range charts used to visualize repeatability and detect drift / special-cause behavior.  [oai_citation:16‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)</li>
+        <li>Experimental structure intentionally induced deterministic changes via parameter blocks.  [oai_citation:17‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)</li>
+      </ul>
+    </div>
+
+    <div>
+      <strong>Effect estimation</strong>
+      <ul>
+        <li>One-way ANOVA per response to test treatment differences.  [oai_citation:18‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:19‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+        <li>Nested ANOVA (variance components) to compare within-treatment noise vs between-treatment effects.  [oai_citation:20‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:21‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+        <li>OLS regression using main effects + two-way interactions.  [oai_citation:22‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:23‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>KEY RESULTS</h2>
+  <ul>
+    <li>
+      Across outputs, replicate-to-replicate variability often dominated treatment differences; nested ANOVA attributed most variance to within-treatment noise.  [oai_citation:24‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    </li>
+    <li>
+      Regression models were not significant overall, despite a few individually significant coefficients—consistent with the nested ANOVA conclusion.  [oai_citation:25‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:26‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    </li>
+    <li>
+      Directional/physical interpretation still emerged: nozzle Z-offset (LH) behaved as the dominant lever, feed rate was second-order, and RPM had comparatively smaller effects.  [oai_citation:27‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:28‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+    </li>
+  </ul>
+
+  <h2>LIMITATIONS & WHAT WE’D DO NEXT</h2>
+  <p>
+    Within the safe operating window tested, the physical response of the printer and measurement variability reduced contrast between treatments.
+    We recommended widening parameter excitation, improving replication strategy (randomized true replicates), and adding factor levels / broader coverage
+    to increase statistical power and capture non-linear behavior.  [oai_citation:29‡2.830 Final Project Presentation - Group 6.pdf](sediment://file_00000000596471fdbe6fe3a229ecd53f)  [oai_citation:30‡2.830-final-project-report-BAAM-MD-AD-AK.pdf](sediment://file_000000002cd071f889b7c5f3b6e1f9ff)
+  </p>
+
+  <h2>GALLERY</h2>
+  <!-- Replace these with your actual images/plots -->
+  <div class="gallery">
+    <img src="/images/projects/baam/01.jpg" alt="Bead cross section / measurement setup" onclick="openLightbox(this)">
+    <img src="/images/projects/baam/02.jpg" alt="DOE table / parameter grid" onclick="openLightbox(this)">
+    <img src="/images/projects/baam/03.jpg" alt="Run chart / MR chart" onclick="openLightbox(this)">
+    <img src="/images/projects/baam/04.jpg" alt="ANOVA / nested ANOVA summary" onclick="openLightbox(this)">
+    <img src="/images/projects/baam/05.jpg" alt="Regression model / significance table" onclick="openLightbox(this)">
+    <img src="/images/projects/baam/06.jpg" alt="Recommended DOE / future work table" onclick="openLightbox(this)">
+  </div>
+
+  <div class="links">
+    <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(img){
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      document.getElementById("lightbox").style.display = "none";
+      document.body.style.overflow = "";
+    }
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+</html>
