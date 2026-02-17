@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self Solving Rubik’s Cube | Aayush Dutta</title>
 
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    nav a:hover { opacity: 0.75; }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #555;
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      border: 1px solid #e6e6e6;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .meta-label {
+      color: #777;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eaeaea;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin: 40px 0 12px 0;
+    }
+
+    ul { margin-left: 18px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .callout {
+      border: 1px solid #e6e6e6;
+      border-radius: 10px;
+      padding: 16px;
+      color: #333;
+      background: #fafafa;
+      margin-top: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #eaeaea;
+      cursor: zoom-in;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    .links { margin-top: 32px; }
+
+    .links a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      margin-right: 18px;
+    }
+
+    .links a:hover { opacity: 0.75; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: zoom-out;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 900px) {
+      body { margin: 48px auto; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1>Self Solving Rubik’s Cube — Formlabs Hackathon</h1>
+  <p class="subtitle">
+    An autonomous, table-top Rubik’s Cube concept build focused on compact packaging, low-friction actuation,
+    and repeatable alignment. Our team was selected as 1 of 24 teams across Harvard, MIT, and Olin.
+  </p>
+
+  <div class="meta">
+    <div>
+      <div class="meta-label">EVENT</div>
+      Formlabs Hackathon · 30th Jan to 1st Feb 2026
+    </div>
+    <div>
+      <div class="meta-label">FOCUS</div>
+      Mechatronics · Packaging · Mechanisms · Iteration
+    </div>
+    <div>
+      <div class="meta-label">GOALS</div>
+      Internal electronics · Individually actuated faces · Closed-loop alignment
+    </div>
+    <div>
+      <div class="meta-label">FABRICATION</div>
+      SLA prototyping + tolerance-driven design
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <!-- Put a strong “finished build” photo here -->
+  <img class="hero" src="/images/projects/rubiks/hero.jpg" alt="Autonomous solving Rubik’s Cube hero image">
+
+  <h2>OVERVIEW</h2>
+  <p>
+    We set out to build an autonomously solving Rubik’s Cube that would solve from its scrambled state after being
+    set down on a table. The project centered on fitting electronics and actuation into a compact form factor while
+    preserving the tactile behavior of a real cube (low friction, true face rotations, and reliable alignment).
+  </p>
+
+  <div class="callout">
+    <strong>High-level constraint:</strong> we repeatedly ran into the tradeoff between enclosure size and cube
+    accessibility/manipulation, especially once real wiring, motors, and boards were introduced.
+  </div>
+
+  <h2>DESIGN GOALS</h2>
+  <ul>
+    <li>Fit all electrical components internally.</li>
+    <li>Rotate exactly like a Rubik’s Cube with low-friction rotation.</li>
+    <li>Individually actuate faces for controlled turns.</li>
+    <li>Achieve repeatable alignment using closed-loop control.</li>
+  </ul>
+
+  <h2>ENGINEERING CHALLENGES</h2>
+  <div class="two-col">
+    <div>
+      <strong>Packaging</strong>
+      <ul>
+        <li>Underestimating the footprint of motors, electronics, and wiring.</li>
+        <li>Balancing enclosure size with accessibility and manipulation.</li>
+        <li>Early geometry choices limiting internal space for components.</li>
+      </ul>
+    </div>
+
+    <div>
+      <strong>Mechanism + repeatability</strong>
+      <ul>
+        <li>Maintaining low friction while ensuring positive engagement with each face.</li>
+        <li>Designing for alignment repeatability (closed-loop intent).</li>
+        <li>Managing tolerances and post-processing effects from SLA prints.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>RESULTS</h2>
+  <ul>
+    <li>
+      We printed all pieces needed for a full cube and packaged electronics within the spherical core.
+    </li>
+    <li>
+      Key limitation: the spherical core was still not large enough to fit all electronic components with room for a power connection.
+    </li>
+  </ul>
+
+  <h2>LEARNINGS & NEXT STEPS</h2>
+  <div class="two-col">
+    <div>
+      <strong>Learnings</strong>
+      <ul>
+        <li>Rapid task-splitting and clear communication enabled fast iteration under time pressure.</li>
+        <li>SLA printing reinforced tolerance design, post-processing needs, and the impact of print orientation on accuracy.</li>
+      </ul>
+    </div>
+    <div>
+      <strong>Next steps</strong>
+      <ul>
+        <li>Scale/clean up the enclosure to better fit electronics and wiring.</li>
+        <li>Improve alignment and motor control for more reliable manipulation.</li>
+        <li>Redesign center pieces/connection mechanisms for compactness and torque robustness.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>GALLERY</h2>
+  <!-- Put your best 3–6 photos here (finished cube, internal wiring, CAD render, etc.) -->
+  <div class="gallery">
+    <img src="/images/projects/rubiks/01.jpg" alt="Rubik's Cube project image 1" onclick="openLightbox(this)">
+    <img src="/images/projects/rubiks/02.jpg" alt="Rubik's Cube project image 2" onclick="openLightbox(this)">
+    <img src="/images/projects/rubiks/03.jpg" alt="Rubik's Cube project image 3" onclick="openLightbox(this)">
+  </div>
+
+  <div class="links">
+    <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+</html>
