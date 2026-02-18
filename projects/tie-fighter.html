@@ -1,1 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TIE Fighter Model | Aayush Dutta</title>
 
+  <style>
+    :root{
+      --text:#111;
+      --muted:#666;
+      --line:#e9e9e9;
+      --bg:#fff;
+      --chip:#f4f4f4;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    .wrap{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+      padding:28px 0 72px;
+    }
+
+    /* Nav */
+    .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .nav{display:flex;gap:24px;font-size:14px;font-weight:500;}
+    .nav a{
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:1px;
+    }
+    .nav a:hover{opacity:.75;}
+
+    /* Header */
+    .kicker{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:var(--muted);
+      margin:8px 0 10px;
+    }
+    h1{
+      font-size:44px;
+      line-height:1.05;
+      margin:0 0 10px;
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:78ch;
+      font-size:16px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:34px;
+      align-items:start;
+      padding:18px 0 26px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .chip{
+      background:var(--chip);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:#222;
+    }
+
+    .hero-card{
+      border-radius:12px;
+      background:#f2f2f2;
+      overflow:hidden;
+      border:1px solid var(--line);
+      min-height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .hero-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      cursor:pointer;
+    }
+    .hero-card .ph{
+      color:#999;
+      font-size:14px;
+      text-align:center;
+      padding:18px;
+    }
+
+    /* Sections */
+    section{padding:26px 0;border-bottom:1px solid var(--line);}
+    h2{
+      font-size:16px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+    .p{margin:0 0 12px;color:#222;}
+    ul{margin:0;padding-left:18px;color:#222;}
+    li{margin:0 0 8px;}
+    .callout{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+      background:#fafafa;
+    }
+    .callout .label{
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .thumb{
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:#f2f2f2;
+      aspect-ratio:4/3;
+      cursor:pointer;
+      position:relative;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform 180ms ease, opacity 180ms ease;
+    }
+    .thumb:hover img{transform:scale(1.02);opacity:.95;}
+    .thumb .cap{
+      position:absolute;left:10px;right:10px;bottom:10px;
+      font-size:12px;color:#fff;
+      text-shadow:0 1px 10px rgba(0,0,0,.35);
+    }
+
+    /* Footer */
+    .footer{
+      padding-top:22px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .footer a{
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:1px;
+    }
+    .footer a:hover{opacity:.75;}
+
+    /* Lightbox (same tab) */
+    .lightbox{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      z-index:9999;
+    }
+    .lightbox.open{display:flex;}
+    .lightbox-inner{
+      width:min(1100px,96vw);
+      max-height:92vh;
+      background:#111;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      position:relative;
+    }
+    .lightbox-img{
+      width:100%;
+      height:92vh;
+      max-height:92vh;
+      object-fit:contain;
+      display:block;
+      background:#111;
+    }
+    .lightbox-close{
+      position:absolute;top:12px;right:12px;
+      width:38px;height:38px;border-radius:10px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.35);
+      color:#fff;
+      cursor:pointer;
+      font-size:18px;
+      line-height:1;
+    }
+    .lightbox-close:hover{opacity:.85;}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      h1{font-size:36px;}
+      .grid-2{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:1fr;}
+      .hero-card{min-height:220px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="nav">
+        <a href="../index.html">About</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../resume.html">Resume</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <div class="kicker">Manufacturing Reflection</div>
+        <h1>TIE Fighter Model</h1>
+        <p class="subtitle">
+          A compact, 3D-printable TIE Fighter inspired by Star Wars, designed under strict material and
+          envelope constraints. The final assembly used a three-part split (body + two wings) with a
+          peg-fit interface and a locking screw to improve rigidity while preserving wing maneuverability.
+        </p>
+
+        <div class="meta">
+          <span class="chip">SolidWorks CAD</span>
+          <span class="chip">3D printing constraints</span>
+          <span class="chip">Interlocking design</span>
+          <span class="chip">Tolerance thinking</span>
+          <span class="chip">Design iteration</span>
+        </div>
+      </div>
+
+      <!-- HERO IMAGE -->
+      <div class="hero-card">
+        <img
+          src="../assets/tie-fighter/hero.jpg"
+          alt="TIE Fighter model hero"
+          onclick="openLightbox(this.src)"
+          onerror="this.remove(); this.parentElement.innerHTML='<div class=ph>Hero image placeholder<br/>../assets/tie-fighter/hero.jpg</div>';"
+        />
+      </div>
+    </div>
+
+    <section>
+      <h2>Overview</h2>
+      <div class="grid-2">
+        <div>
+          <p class="p">
+            This project focused on translating a recognizable sci-fi vehicle into a printable, small-form
+            assembly. Because the print volume and total material were limited, the design was intentionally
+            modular: two wings and a central body, joined via a peg interface and secured using a screw.
+          </p>
+          <p class="p">
+            The goal was a clean aesthetic (minimal visible “mechanical” clutter) while still ensuring
+            the parts assembled smoothly and stayed rigid in typical handling.
+          </p>
+        </div>
+
+        <div class="callout">
+          <div class="label">Key constraints</div>
+          <ul>
+            <li>Limited total material usage</li>
+            <li>Parts must fit within a restricted envelope</li>
+            <li>All features above minimum printable thickness</li>
+            <li>Assembly must be repeatable without breakage</li>
+            <li>Maintain a “sleek” look consistent with the reference</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>CAD Approach</h2>
+      <div class="grid-2">
+        <div class="callout">
+          <div class="label">Body features</div>
+          <ul>
+            <li>Extrusions for side panels</li>
+            <li>Extrude cuts for windows and wing holes</li>
+            <li>Revolves for the main spherical form and rear detail</li>
+            <li>Mirror features for symmetry</li>
+            <li>Shell to reduce material and support powder removal</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <div class="label">Wing + screw features</div>
+          <ul>
+            <li>Wing plate and peg created via extrusion</li>
+            <li>Cut features to create the screw pathway</li>
+            <li>Fillets added at peg bases to reduce stress concentration</li>
+            <li>Screw modeled using revolves (rod + bulb)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Interlocking & Tolerance</h2>
+      <div class="grid-2">
+        <div>
+          <p class="p">
+            The primary joint was a peg-fit: cylindrical pegs on the wings insert into cylindrical holes
+            in the body. A secondary screw passes through a cut pathway to lock the full assembly,
+            reducing looseness and helping the model hold alignment.
+          </p>
+          <p class="p">
+            The initial peg/hole fit was slightly loose in the straight alignment, which led to separation
+            without the screw. With the screw engaged, the assembly behaved as intended, with good retention
+            and still allowing the wings to rotate.
+          </p>
+        </div>
+
+        <div class="callout">
+          <div class="label">What I would improve</div>
+          <ul>
+            <li>Tighten peg/hole tolerance to improve straight-alignment retention</li>
+            <li>Shorten the screw rod so it doesn’t protrude beyond the intended geometry</li>
+            <li>Run additional fit trials to balance assembly ease vs rigidity</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gallery</h2>
+      <p class="subtitle" style="margin-top:-6px;">
+        Add your renders, drawings, and printed-part photos here. Click any image to enlarge (same tab).
+      </p>
+
+      <div class="gallery">
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/01-render-body.jpg')">
+          <img src="../assets/tie-fighter/01-render-body.jpg" alt="Body render"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/01-render-body.jpg</span>';">
+          <div class="cap">Body render</div>
+        </div>
+
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/02-render-wing.jpg')">
+          <img src="../assets/tie-fighter/02-render-wing.jpg" alt="Wing render"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/02-render-wing.jpg</span>';">
+          <div class="cap">Wing render</div>
+        </div>
+
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/03-render-assembly.jpg')">
+          <img src="../assets/tie-fighter/03-render-assembly.jpg" alt="Assembly render"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/03-render-assembly.jpg</span>';">
+          <div class="cap">Assembly render</div>
+        </div>
+
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/04-printed-straight.jpg')">
+          <img src="../assets/tie-fighter/04-printed-straight.jpg" alt="Printed part — straight alignment"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/04-printed-straight.jpg</span>';">
+          <div class="cap">Printed — straight alignment</div>
+        </div>
+
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/05-printed-angled.jpg')">
+          <img src="../assets/tie-fighter/05-printed-angled.jpg" alt="Printed part — angled alignment"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/05-printed-angled.jpg</span>';">
+          <div class="cap">Printed — angled alignment</div>
+        </div>
+
+        <div class="thumb" onclick="openLightbox('../assets/tie-fighter/06-drawings.jpg')">
+          <img src="../assets/tie-fighter/06-drawings.jpg" alt="Final drawings / dimensions"
+               onerror="this.style.display='none'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.innerHTML='<span style=&quot;color:#9a9a9a;font-size:13px;&quot;>../assets/tie-fighter/06-drawings.jpg</span>';">
+          <div class="cap">Drawings / dimensions</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Aayush Dutta</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;">
+        <a href="../portfolio.html">Back to Portfolio</a>
+        <a href="../index.html">About</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close" onclick="closeLightbox(event)">✕</button>
+      <img class="lightbox-img" id="lightboxImg" alt="Expanded image" />
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    function openLightbox(src){
+      const lb = document.getElementById("lightbox");
+      const img = document.getElementById("lightboxImg");
+      img.src = src;
+      lb.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(e){
+      if (e && e.target && (e.target.classList.contains("lightbox-img") || e.target.classList.contains("lightbox-inner"))) {
+        return;
+      }
+      if (e) e.stopPropagation();
+      document.getElementById("lightbox").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") {
+        const lb = document.getElementById("lightbox");
+        if (lb.classList.contains("open")) closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
