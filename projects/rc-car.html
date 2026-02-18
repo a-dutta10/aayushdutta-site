@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RC Car — Wheels Manufacturing at Scale | Aayush Dutta</title>
 
+  <style>
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      max-width:1000px;
+      margin:80px auto;
+      padding:0 20px;
+      color:#111;
+      line-height:1.6;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      margin-bottom:32px;
+    }
+    nav a{
+      color:#111;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      font-weight:500;
+    }
+    nav a:hover{opacity:.75}
+
+    h1{font-size:2.2rem;margin:0 0 8px 0}
+    .subtitle{color:#555;max-width:860px;margin:0 0 24px 0}
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      padding:18px;
+      margin:0 0 32px 0;
+      font-size:.95rem;
+    }
+    .meta-label{
+      color:#777;
+      font-size:.78rem;
+      letter-spacing:.12em;
+      margin:0 0 4px 0;
+    }
+
+    .hero{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      border-radius:10px;
+      background:#eaeaea;
+      margin:0 0 40px 0;
+      display:block;
+    }
+
+    h2{
+      font-size:.9rem;
+      letter-spacing:.12em;
+      color:#777;
+      margin:40px 0 12px 0;
+    }
+
+    ul{margin-left:18px}
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+    }
+
+    .callout{
+      border:1px solid #e6e6e6;
+      border-radius:10px;
+      padding:16px;
+      color:#333;
+      background:#fafafa;
+      margin-top:18px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .gallery img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:8px;
+      background:#eaeaea;
+      cursor:zoom-in;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+    .gallery img:hover{transform:scale(1.02);opacity:.9}
+
+    .links{margin-top:32px}
+    .links a{
+      color:#111;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      font-weight:500;
+      margin-right:18px;
+    }
+    .links a:hover{opacity:.75}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      cursor:zoom-out;
+      padding:24px;
+    }
+    .lightbox img{
+      max-width:92%;
+      max-height:92%;
+      border-radius:10px;
+      object-fit:contain;
+      background:#111;
+    }
+
+    @media (max-width:900px){
+      body{margin:48px auto}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">About</a>
+    <a href="/portfolio.html">Portfolio</a>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1>RC Car — Wheels Manufacturing at Scale</h1>
+  <p class="subtitle">
+    A manufacturing-driven RC car build focused on producing a full wheel system at scale and optimizing
+    traction and robustness for obstacle-course performance. We placed <strong>1st out of 6 teams</strong>
+    with a <strong>42s</strong> course time and produced <strong>160 wheels</strong>.
+  </p>
+
+  <div class="meta">
+    <div>
+      <div class="meta-label">PRIMARY OBJECTIVES</div>
+      Manufacturing at scale · Traverse obstacle course
+    </div>
+    <div>
+      <div class="meta-label">DESIGN GOALS</div>
+      Traverse obstacles · Speed · Traction · DFM · System compatibility
+    </div>
+    <div>
+      <div class="meta-label">SCOPE</div>
+      Wheel · Tire · Hub · Fasteners
+    </div>
+    <div>
+      <div class="meta-label">VOLUME</div>
+      160 wheels manufactured
+    </div>
+  </div>
+
+  <img class="hero" src="/images/projects/rc-car/hero.png" alt="RC car overview">
+
+  <h2>OVERVIEW</h2>
+  <p>
+    This project emphasized building a wheel system that could be manufactured repeatably and integrated cleanly
+    with drivetrain, suspension, and steering constraints. We iterated the wheel and tire design for performance
+    on the obstacle course while optimizing the production process for throughput and reliability.
+  </p>
+
+  <h2>WHAT WE BUILT</h2>
+  <ul>
+    <li>Aluminum wheel geometry optimized for stiffness-to-weight and manufacturability.</li>
+    <li>Cast urethane tire selected for traction and durability.</li>
+    <li>Mounting hub and fastening system for repeatable assembly.</li>
+  </ul>
+
+  <h2>MANUFACTURING PROCESS</h2>
+  <p>
+    We developed a full production workflow: waterjet blanks → lathe jig and fixturing → CAM finishing.
+    The lathe strategy was revised to reduce cycle time significantly while maintaining surface quality.
+  </p>
+
+  <div class="callout">
+    Production was scaled and validated, with fixtures and process flow optimized for speed,
+    repeatability, and consistent output across all 160 wheels.
+  </div>
+
+  <h2>RESULTS</h2>
+  <ul>
+    <li>1st place out of 6 teams (42 seconds).</li>
+    <li>160 wheels manufactured at scale.</li>
+    <li>Hands-on experience in fixture design, CAM, process optimization, and scaled production under deadline.</li>
+  </ul>
+
+  <h2>GALLERY</h2>
+  <div class="gallery">
+    <img src="/images/projects/rc-car/01.png" alt="RC car system overview" onclick="openLightbox(this)">
+    <img src="/images/projects/rc-car/02.jpg" alt="Wheel assembly" onclick="openLightbox(this)">
+    <img src="/images/projects/rc-car/03.jpg" alt="CAD model" onclick="openLightbox(this)">
+    <img src="/images/projects/rc-car/04.jpg" alt="Manufacturing fixture" onclick="openLightbox(this)">
+    <img src="/images/projects/rc-car/05.jpg" alt="Tire casting" onclick="openLightbox(this)">
+    <img src="/images/projects/rc-car/06.jpg" alt="Finished production wheels" onclick="openLightbox(this)">
+  </div>
+
+  <div class="links">
+    <a href="/portfolio.html">← Back to Portfolio</a>
+  </div>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(img){
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      document.getElementById("lightbox").style.display = "none";
+      document.body.style.overflow = "";
+    }
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape") closeLightbox();
+    });
+  </script>
+</body>
+</html>
